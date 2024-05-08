@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>j0 - Notícias Escolares</title>
+    <link rel="icon" href="j1.png" type="image/png">
+
+    <!-- Adiciona o Font Awesome para usar ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Estilos globais */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Barra de navegação */
+        .navbar {
+            background-color: #06AA48;
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+        }
+
+        .navbar img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Novo contêiner para centralizar o logotipo */
+        .navbar-center {
+            flex-grow: 1; 
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+        }
+
+        /* Menu lateral */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            background-color: #FFF;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            text-align: left;
+            color: #06AA48;
+            display: flex;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #06AA48;
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+        }
+
+        /* Overlay para escurecimento do conteúdo */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Estilos para a seção de notícias */
+        .main-content {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .news-button {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: left;
+            text-decoration: none;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        .news-button:hover {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+        }
+
+        .news-button img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .news-button h2 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .news-button p {
+            color: #666;
+        }
+
+        .news-button a {
+            text-decoration: none;
+            color: #C3170C;
+            font-weight: bold;
+            padding: 8px 15px;
+            border: 1px solid #C3170C;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .news-button a:hover {
+            background-color: #C3170C;
+            color: #fff;
+        }
+
+        /* Media queries para telas menores */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+
+            .navbar img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+    </style>
+
+    <script>
+        function openNav() {
+            var sidenav = document.getElementById("mySidenav");
+            var overlay = document.getElementById("overlay");
+
+            sidenav.style.width = "250px"; 
+            overlay.classList.add("show"); 
+        }
+
+        function closeNav() {
+            var sidenav = document.getElementById("mySidenav");
+            var overlay = document.getElementById("overlay");
+
+            sidenav.style.width = "0"; 
+            overlay.classList.remove("show"); 
+        }
+
+        function shareOnWhatsApp() {
+            var currentURL = encodeURIComponent(window.location.href);
+            var message = encodeURIComponent("Confira esta notícia: ");
+            var whatsappLink = `https://api.whatsapp.com/send?text=${message}${currentURL}`;
+
+            window.open(whatsappLink, '_blank');
+        }
+    </script>
+
+</head>
+<body>
+    <div class="navbar">
+        <button class="menu-button" onclick="openNav()">☰</button>
+        
+        <div class="navbar-center">
+            <img src="j1.png" alt="Logo do Site">
+        </div>
+        
+        <div class="navbar-extra">
+            <!-- Se precisar de elementos adicionais, como botões ou ícones -->
+        </div>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html"><i class="fas fa-newspaper"></i>ㅤGerais</a>
+        <a href="escolar.html"><i class="fas fa-book-open"></i>ㅤEscolar</a>
+        <a href="esportes.html"><i class="fas fa-futbol"></i>ㅤEsportes</a>
+        <a href="videos.html"><i class="fas fa-video"></i>ㅤVídeos</a>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closeNav()"></div>
+
+    <div class="main-content">
+        <a href="campanha.html" class="news-button">
+            <img src="Campanha.jpg" alt="Imagem da notícia">
+            <h2>Escola Orminda Guimarães Cotrim e Grêmio Estudantil unidos em campanha de doação de agasalhos</h2>
+            <p>A Escola Orminda Guimarães Cotrim, em parceria com seu Grêmio Estudantil, está promovendo uma nobre campanha de doação de agasalhos. O objetivo é arrecadar roupas e cobertores para ajudar aqueles...</p>
+        </a>
+
+        <a href="livro.html" class="news-button">
+            <img src="livro.jpg" alt="Imagem da notícia">
+            <h2>Professor e aluno transformam desafio literário em livro publicado</h2>
+            <p>Durante uma aula de literatura no 2ºA da Escola Orminda Guimarães Cotrim, o professor Miguel R. Silva lançou um desafio empolgante para os alunos: reescrever uma versão alternativa do clássico "Dom Casmurro", de Machado de Assis. O objetivo era explorar a criatividade dos estudantes e...</p>
+        </a>
+
+        <a href="trilhandocaminhos.html" class="news-button">
+            <img src="xracismo.png" alt="Imagem da notícia">
+            <h2>Trilhando Caminhos Antirracistas: A Importância da Literatura nas Escolas</h2>
+            <p>
+                Na busca por uma educação mais inclusiva e igualitária, cada vez mais escolas estão adotando a trilha antirracista de livros em suas práticas pedagógicas. Essa abordagem visa não apenas combater o racismo estrutural, mas...</p>
+        </a>
+
+        <a href="creditos.html" class="news-button">
+            <img src="programa.png" alt="Imagem da notícia">
+            <h2>Alunos do 7ºA da Escola Orminda Guimarães Cotrim Propõem a Criação de Jornal Escolar durante Aula de Língua Portuguesa</h2>
+            <p>
+                No final do mês de abril, durante a aula de Língua Portuguesa, ministrada pela Professora Maria Luiza Ribeiro, os alunos do 7ºA da Escola Orminda Guimarães Cotrim tiveram uma ideia brilhante: criar um jornal escolar para compartilhar...</p>
+        </a>
+
+        <a href="omasp.html" class="news-button">
+            <img src="omasp.jpg" alt="Imagem da notícia">
+            <h2>Alunos da Escola Orminda Guimarães Cotrim se Preparam para a 2ª Fase da Olimpíada de Matemática de São Paulo (OMASP)</h2>
+            <p>Os alunos da Escola Orminda Guimarães Cotrim estão se preparando para enfrentar mais um desafio intelectual: a segunda fase da renomada Olimpíada de Matemática de São Paulo (OMASP). Com um total impressionante de 251 estudantes aprovados na primeira fase, entre os anos finais do ensino fundamental e o ensino...</p>
+        </a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos do 7ºA da Escola Orminda Guimarães Cotrim Propõem a Criação de Jornal Escolar durante Aula de Língua Portuguesa | j0</title>
+    <link rel="icon" href="j1.png" type="image/png">
+
+    <!-- Adiciona o Font Awesome para usar ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #06AA48;
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .navbar-center {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar img {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Menu lateral */
+        .sidenav {
+            height: 100%;
+            width: 0; 
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            background-color: #FFF;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            text-align: left;
+            color: #06AA48;
+            display: flex; 
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #06AA48;
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .main-content {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        .share-buttons {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .share-button {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            border: none;
+            line-height: 1;
+            font-size: 16px;
+        }
+
+        .share-button.whatsapp {
+            background-color: #3F4145;
+            font-size: 16px;
+        }
+
+        .noticia {
+            padding: 20px;
+            background-color: #FFF;
+            text-align: center;
+        }
+
+        .noticia t {
+            color: #0D0D0D;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .noticia footer {
+            font-size: 10px;
+        }
+
+        .noticia p {
+           color: #666;
+           font-size: 16px;
+        }
+
+        .noticia ur {
+            color: #C3170C;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .noticia a {
+            color: #C3170C;
+            background-color: white;
+            font-size: 16px;
+            border: 3px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .noticia img {
+            max-width: 100%; /* Limita a largura ao tamanho do contêiner */
+            height: auto; /* Mantém proporção */
+            border-radius: 15px; /* Cantos arredondados */
+        }
+
+        .noticia footer {
+            font-size: 10px;
+        }
+
+    </style>
+
+    <script>
+        function openNav() {
+            var sidenav = document.getElementById("mySidenav");
+            var overlay = document.getElementById("overlay");
+            sidenav.style.width = "250px"; 
+            overlay.classList.add("show"); 
+        }
+
+        function closeNav() {
+            var sidenav = document.getElementById("mySidenav");
+            var overlay = document.getElementById("overlay");
+            sidenav.style.width = "0"; 
+            overlay.classList.remove("show"); 
+        }
+
+        function shareOnWhatsApp() {
+            var currentURL = encodeURIComponent(window.location.href);
+            var message = encodeURIComponent("Você precisa conferir esta notícia! É realmente impressionante. Veja mais aqui: "); 
+            var whatsappLink = `https://api.whatsapp.com/send?text=${message}${currentURL}`;
+
+            window.open(whatsappLink, '_blank');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="navbar">
+        <button class="menu-button" onclick="openNav()">☰</button>
+        <div class="navbar-center">
+            <h1>ESCOLAR</h1>
+        </div>
+        <img src="j1.png" alt="Logo do Site">
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html"><i class="fas fa-newspaper"></i>ㅤGerais</a>
+        <a href="escolar.html"><i class="fas fa-book-open"></i>ㅤEscolar</a>
+        <a href="esportes.html"><i class="fas fa-futbol"></i>ㅤEsportes</a>
+        <a href="videos.html"><i class="fas fa-video"></i>ㅤVídeos</a>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closeNav()"></div>
+    
+    <h1>Alunos da Escola Orminda Guimarães Cotrim se Preparam para a 2ª Fase da Olimpíada de Matemática de São Paulo (OMASP)</h1>
+    <p>Os alunos da Escola Orminda Guimarães Cotrim estão se preparando para enfrentar mais um desafio intelectual: a segunda fase da renomada Olimpíada de Matemática de São Paulo (OMASP). Com um total impressionante de 251 estudantes aprovados na primeira fase, entre os anos finais do ensino fundamental e o ensino médio, a escola se destaca mais uma vez como um centro de excelência educacional.</p>
+    <p>Nos dias 06, 07 e 09 de maio, os jovens talentos da instituição irão demonstrar suas habilidades matemáticas em uma competição que não só testa o conhecimento, mas também promove o raciocínio lógico e a resolução de problemas complexos.</p>
+    <p>A Olimpíada de Matemática de São Paulo é uma competição de prestígio que visa estimular o estudo da matemática e identificar jovens talentosos nessa área. Os alunos da Escola Orminda Guimarães Cotrim estão prontos para representar sua escola com excelência e demonstrar todo o seu potencial durante a segunda fase da competição.</p>
+    <br>
+
+    <div class="share-buttons">
+        <button onclick="shareOnWhatsApp()" class="share-button whatsapp">Compartilhar</button>
+    </div>
+
+    <div class="noticia">
+        <br>
+        <br>
+        <br>
+        <img src="omasp.jpg" alt="Volei">
+        <footer>Foto capturada na escola Orminda Guimarães Cotrim</footer>
+        <br>
+        <br>
+        <a href="https://chat.whatsapp.com/KtmfvHDOzIk4fYjzN8lWfj">📱Acesse o canal do j0 no seu WhatsApp!</a>
+        <br>
+        <br>
+        <footer>© Jornal Orminda 2024</footer>
+    </div>
+</body>
+</html>

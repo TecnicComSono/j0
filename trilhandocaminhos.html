@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilhando Caminhos Antirracistas: A Importância da Literatura nas Escolas | j0</title>
+    <link rel="icon" href="j1.png" type="image/png">
+
+    <!-- Adiciona o Font Awesome para usar ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #06AA48;
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .navbar-center {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar img {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Menu lateral */
+        .sidenav {
+            height: 100%;
+            width: 0; 
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            background-color: #FFF;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            text-align: left;
+            color: #06AA48;
+            display: flex; 
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #06AA48;
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .main-content {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        .share-buttons {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .share-button {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            border: none;
+            line-height: 1;
+            font-size: 16px;
+        }
+
+        .share-button.whatsapp {
+            background-color: #3F4145;
+            font-size: 16px;
+        }
+
+        .noticia {
+            padding: 20px;
+            background-color: #FFF;
+            text-align: center;
+        }
+
+        .noticia t {
+            color: #0D0D0D;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .noticia footer {
+            font-size: 10px;
+        }
+
+        .noticia p {
+           color: #666;
+           font-size: 16px;
+        }
+
+        .noticia ur {
+            color: #C3170C;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .noticia a {
+            color: #C3170C;
+            background-color: white;
+            font-size: 16px;
+            border: 3px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .noticia img {
+            max-width: 100%; /* Limita a largura ao tamanho do contêiner */
+            height: auto; /* Mantém proporção */
+            border-radius: 15px; /* Cantos arredondados */
+        }
+
+        .noticia footer {
+            font-size: 10px;
+        }
+
+    </style>
+
+    <script>
+        function openNav() {
+            var sidenav = document.getElementById("mySidenav");
+            var overlay = document.getElementById("overlay");
+            sidenav.style.width = "250px"; 
+            overlay.classList.add("show"); 
+        }
+
+        function closeNav() {
+            var sidenav = document.getElementById("mySidenav");
+            var overlay = document.getElementById("overlay");
+            sidenav.style.width = "0"; 
+            overlay.classList.remove("show"); 
+        }
+
+        function shareOnWhatsApp() {
+            var currentURL = encodeURIComponent(window.location.href);
+            var message = encodeURIComponent("Você precisa conferir esta notícia! É realmente impressionante. Veja mais aqui: "); 
+            var whatsappLink = `https://api.whatsapp.com/send?text=${message}${currentURL}`;
+
+            window.open(whatsappLink, '_blank');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="navbar">
+        <button class="menu-button" onclick="openNav()">☰</button>
+        <div class="navbar-center">
+            <h1>ESCOLAR</h1>
+        </div>
+        <img src="j1.png" alt="Logo do Site">
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html"><i class="fas fa-newspaper"></i>ㅤGerais</a>
+        <a href="escolar.html"><i class="fas fa-book-open"></i>ㅤEscolar</a>
+        <a href="esportes.html"><i class="fas fa-futbol"></i>ㅤEsportes</a>
+        <a href="videos.html"><i class="fas fa-video"></i>ㅤVídeos</a>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closeNav()"></div>
+    
+    <h1>Trilhando Caminhos Antirracistas: A Importância da Literatura nas Escolas</h1>
+    <p>Na busca por uma educação mais inclusiva e igualitária, cada vez mais escolas estão adotando a trilha antirracista de livros em suas práticas pedagógicas. Essa abordagem visa não apenas combater o racismo estrutural, mas também promover a valorização da diversidade e o respeito às diferentes identidades.
+</p>
+    <p>Na Escola Orminda Guimarães Cotrim, essa trilha antirracista de livros é desenvolvida de forma colaborativa com os alunos, proporcionando um espaço de diálogo e reflexão sobre questões raciais desde o ensino fundamental anos finais. No primeiro bimestre, por exemplo, as turmas do 6º e 7º anos mergulharam na leitura do livro "O Pequeno Príncipe Preto", uma obra que aborda temas de identidade, diversidade e autoestima sob a perspectiva de um personagem negro. Já neste bimestre, as turmas dos 8º anos estão explorando as páginas do livro "Pequeno Manual Antirracista", que oferece uma abordagem prática e esclarecedora sobre como identificar, compreender e combater o racismo em diferentes esferas da vida cotidiana. Essas experiências de leitura e discussão contribuem significativamente para a formação de uma consciência crítica e empática nos estudantes, preparando-os para enfrentar os desafios e promover a mudança em suas comunidades.
+</p>
+    <p>A inclusão de uma trilha antirracista de livros nas escolas é fundamental por diversos motivos. Em primeiro lugar, a literatura desempenha um papel crucial na formação da consciência social e na ampliação dos horizontes dos estudantes. Ao serem expostos a uma variedade de vozes e perspectivas, os alunos desenvolvem empatia e compreensão em relação às experiências de vida de pessoas de diferentes origens étnico-raciais.
+</p>
+    <p>Além disso, a trilha antirracista de livros ajuda a desconstruir estereótipos e preconceitos, desafiando narrativas dominantes e promovendo uma reflexão crítica sobre a história e a realidade social. Ao apresentar obras que abordam questões como racismo, discriminação e luta por igualdade, as escolas capacitam os estudantes a se tornarem agentes de mudança em suas comunidades.
+</p>
+    <p>Outro aspecto importante é o fortalecimento da autoestima e da identidade das crianças e jovens negros ao verem suas experiências representadas de maneira positiva na literatura. A presença de personagens e autores negros em livros contribui para a construção de uma identidade mais forte e segura, além de inspirar aspirações e sonhos.
+</p>
+    <p>É fundamental ressaltar que a trilha antirracista de livros não se restringe apenas à literatura produzida por autores negros, mas engloba também obras que abordam a história e a cultura afro-brasileira e africana. Dessa forma, os estudantes têm a oportunidade de conhecer e valorizar a riqueza da herança cultural negra, contribuindo para o combate ao apagamento e à marginalização dessa história.
+</p>
+    <p>Diante desses benefícios, é essencial que as escolas invistam na seleção e na incorporação de livros antirracistas em seus currículos e bibliotecas. Essa é uma maneira poderosa de promover a justiça social e construir uma sociedade mais inclusiva e equitativa, onde todos os alunos se sintam respeitados, representados e capacitados a contribuir para um futuro melhor. A trilha antirracista de livros é mais do que uma ferramenta educacional; é um compromisso com a transformação social e o respeito à dignidade humana.</p>
+    <br>
+
+    <div class="share-buttons">
+        <button onclick="shareOnWhatsApp()" class="share-button whatsapp">Compartilhar</button>
+    </div>
+
+    <div class="noticia">
+        <br>
+        <br>
+        <br>
+        <img src="xracismo.png" alt="Volei">
+        <footer>Design feito pela Professora Maria Luiza sobre a reportagem.</footer>
+        <br>
+        <br>
+        <a href="https://chat.whatsapp.com/KtmfvHDOzIk4fYjzN8lWfj">📱Acesse o canal do j0 no seu WhatsApp!</a>
+        <br>
+        <br>
+        <footer>© Jornal Orminda 2024</footer>
+    </div>
+</body>
+</html>
