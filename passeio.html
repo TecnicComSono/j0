@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos do 3º Ano do Ensino Médio da Escola Orminda Guimarães Cotrim Visitam Centro de Ciências de Araraquara
+ | j0</title>
+    <link rel="icon" href="j1.png" type="image/png">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5015870081794476"
+     crossorigin="anonymous"></script>
+
+    <!-- Adiciona o Font Awesome para usar ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #06AA48;
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .navbar-center {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar img {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Menu lateral */
+        .sidenav {
+            height: 100%;
+            width: 0; 
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            background-color: #FFF;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            text-align: left;
+            color: #06AA48;
+            display: flex; 
+            align-items: center;
+            transition: 0.3s;
+        }
+        
+        .sidenav a:hover {
+            color: #06AA48;
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .main-content {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        .share-buttons {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .share-button {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            border: none;
+            line-height: 1;
+            font-size: 16px;
+        }
+
+        .share-button.whatsapp {
+            background-color: #3F4145;
+            font-size: 16px;
+        }
+
+        .noticia {
+            padding: 20px;
+            background-color: #FFF;
+            text-align: center;
+        }
+
+        .noticia t {
+            color: #0D0D0D;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .noticia footer {
+            font-size: 10px;
+        }
+
+        .noticia p {
+           color: #666;
+           font-size: 16px;
+        }
+
+        .noticia ur {
+            color: #C3170C;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .noticia a {
+            color: #C3170C;
+            background-color: white;
+            font-size: 16px;
+            border: 3px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .noticia img {
+            max-width: 100%; /* Limita a largura ao tamanho do contêiner */
+            height: auto; /* Mantém proporção */
+            border-radius: 15px; /* Cantos arredondados */
+        }
+
+        .noticia footer {
+            font-size: 10px;
+        }
+
+    </style>
+
+    <script>
+        function openNav() {
+            var sidenav = document.getElementById("mySidenav");
+            var overlay = document.getElementById("overlay");
+            sidenav.style.width = "250px"; 
+            overlay.classList.add("show"); 
+        }
+
+        function closeNav() {
+            var sidenav = document.getElementById("mySidenav");
+            var overlay = document.getElementById("overlay");
+            sidenav.style.width = "0"; 
+            overlay.classList.remove("show"); 
+        }
+
+        function shareOnWhatsApp() {
+            var currentURL = encodeURIComponent(window.location.href);
+            var message = encodeURIComponent("Você precisa conferir esta notícia! É realmente impressionante. Veja mais aqui: "); 
+            var whatsappLink = `https://api.whatsapp.com/send?text=${message}${currentURL}`;
+
+            window.open(whatsappLink, '_blank');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="navbar">
+        <button class="menu-button" onclick="openNav()">☰</button>
+        <div class="navbar-center">
+            <h1>ESCOLAR</h1>
+        </div>
+        <img src="j1.png" alt="Logo do Site">
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html"><i class="fas fa-newspaper"></i>ㅤGerais</a>
+        <a href="escolar.html"><i class="fas fa-book-open"></i>ㅤEscolar</a>
+        <a href="esportes.html"><i class="fas fa-futbol"></i>ㅤEsportes</a>
+        <a href="videos.html"><i class="fas fa-video"></i>ㅤVídeos</a>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closeNav()"></div>
+
+      <div class="noticia">
+        <h1>Alunos do 3º Ano do Ensino Médio da Escola Orminda Guimarães Cotrim Visitam Centro de Ciências de Araraquara
+</h1>
+        <p>Hoje, os alunos do 3º ano do ensino médio da Escola Orminda Guimarães Cotrim embarcaram em uma viagem educacional memorável para Araraquara. O destino foi o renomado Centro de Ciências de Araraquara, onde os estudantes tiveram a oportunidade de explorar as fascinantes salas de Química, Física, Astronomia e Biologia. Eles foram acompanhados pelos professores Flaviana, Guilherme e Carmen.
+</p>
+        <p>A visita foi organizada com o intuito de proporcionar uma experiência prática e enriquecedora, complementando o aprendizado teórico desenvolvido em sala de aula. Os estudantes foram recebidos por uma equipe que conduziu diversas atividades interativas e demonstrações científicas.
+</p>
+        <p>Os professores que acompanharam a excursão destacaram a importância de atividades como esta para despertar o interesse dos estudantes pelas ciências e estimular a curiosidade e o pensamento crítico. 
+</p>
+        <p>Os alunos retornaram à escola inspirados e motivados, trazendo na bagagem novos conhecimentos e uma renovada paixão pelo aprendizado científico. A Escola Orminda Guimarães Cotrim reafirma seu compromisso com a educação de qualidade, proporcionando aos seus estudantes oportunidades únicas de crescimento intelectual e pessoal.</p>
+      </div>
+
+    <div class="share-buttons">
+        <button onclick="shareOnWhatsApp()" class="share-button whatsapp">Compartilhar</button>
+    </div>
+
+    <div class="noticia">
+        <br>
+        <br>
+        <br>
+        <img src="imagem" alt="Me manda a imagem para eu colocar aqui">
+        <footer>Imagens da visita.</footer>
+        <br>
+        <br>
+        <a href="https://chat.whatsapp.com/KtmfvHDOzIk4fYjzN8lWfj">📱Acesse o canal do j0 no seu WhatsApp!</a>
+        <br>
+        <br>
+        <footer>© Jornal Orminda 2024</footer>
+    </div>
+</body>
+</html>
