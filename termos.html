@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>j0 - Notícias</title>
+    <link rel="icon" href="j1.png" type="image/png">
+    <script async src="https://fundingchoicesmessages.google.com/i/pub-5015870081794476?ers=1" nonce="bQX8jGVQMJMrkVTvE79JTA"></script><script nonce="bQX8jGVQMJMrkVTvE79JTA">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+    <!-- Adiciona o Font Awesome para usar ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5015870081794476"
+     crossorigin="anonymous"></script>
+
+    <style>
+        /* Estilos globais */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Barra de navegação */
+        .navbar {
+            background-color: #06AA48;
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+        }
+
+        .navbar img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Novo contêiner para centralizar o logotipo */
+        .navbar-center {
+            flex-grow: 1; 
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+        }
+
+        /* Menu lateral */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            background-color: #FFF;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            text-align: left;
+            color: #06AA48;
+            display: flex;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #06AA48;
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+        }
+
+        /* Overlay para escurecimento do conteúdo */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Estilos para a seção de notícias */
+        .main-content {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .news-button {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: left;
+            text-decoration: none;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        .news-button:hover {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+        }
+
+        .news-button img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .news-button h2 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .news-button p {
+            color: #666;
+        }
+
+        .news-button a {
+            text-decoration: none;
+            color: #C3170C;
+            font-weight: bold;
+            padding: 8px 15px;
+            border: 1px solid #C3170C;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .news-button a:hover {
+            background-color: #C3170C;
+            color: #fff;
+        }
+
+        /* Media queries para telas menores */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+
+            .navbar img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+    </style>
+
+    <script>
+        function openNav() {
+            var sidenav = document.getElementById("mySidenav");
+            var overlay = document.getElementById("overlay");
+
+            sidenav.style.width = "250px"; 
+            overlay.classList.add("show"); 
+        }
+
+        function closeNav() {
+            var sidenav = document.getElementById("mySidenav");
+            var overlay = document.getElementById("overlay");
+
+            sidenav.style.width = "0"; 
+            overlay.classList.remove("show"); 
+        }
+
+        function shareOnWhatsApp() {
+            var currentURL = encodeURIComponent(window.location.href);
+            var message = encodeURIComponent("Confira esta notícia: ");
+            var whatsappLink = `https://api.whatsapp.com/send?text=${message}${currentURL}`;
+
+            window.open(whatsappLink, '_blank');
+        }
+    </script>
+
+</head>
+<body>
+    <div class="navbar">
+        <button class="menu-button" onclick="openNav()">☰</button>
+        
+        <div class="navbar-center">
+            <img src="j1.png" alt="Logo do Site">
+        </div>
+        
+        <div class="navbar-extra">
+            <!-- Se precisar de elementos adicionais, como botões ou ícones -->
+        </div>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html"><i class="fas fa-newspaper"></i>ㅤGerais</a>
+        <a href="escolar.html"><i class="fas fa-book-open"></i>ㅤEscolar</a>
+        <a href="esportes.html"><i class="fas fa-futbol"></i>ㅤEsportes</a>
+        <a href="videos.html"><i class="fas fa-video"></i>ㅤVídeos</a>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closeNav()"></div>
+        <h1>Termos de Serviço do Jornal Orminda</h1>
+
+    <p>Bem-vindo ao Jornal Orminda! Estes Termos de Serviço ("Termos") regem o uso do site do Jornal Orminda (doravante referido como "nós", "nosso" ou "Jornal Orminda") e todos os seus serviços relacionados. Ao acessar ou usar o nosso site, você concorda com estes Termos. Se você não concordar com algum destes Termos, por favor, não use nosso site.</p>
+
+    <h2>1. Uso do Site:</h2>
+    <ul>
+        <li>Você concorda em usar o site do Jornal Orminda apenas para fins legais e de acordo com estes Termos.</li>
+        <li>Você concorda em não usar o site de forma que possa danificar, desativar, sobrecarregar ou prejudicar o site ou interferir no uso e na experiência de outros usuários.</li>
+    </ul>
+
+    <h2>2. Conteúdo:</h2>
+    <ul>
+        <li>Todo o conteúdo publicado no site do Jornal Orminda, incluindo, mas não se limitando a, textos, imagens, vídeos, áudios e gráficos, é de propriedade do Jornal Orminda ou de seus licenciadores e está protegido por leis de direitos autorais.</li>
+        <li>Você concorda em não reproduzir, distribuir, modificar, exibir ou transmitir qualquer parte do conteúdo do Jornal Orminda sem autorização prévia por escrito.</li>
+    </ul>
+
+    <!-- Mais pontos em HTML... -->
+
+    <h2>7. Contato: 00001142170925sp@al.educacao.sp.gov.br</h2>
+    <p>Se você tiver alguma dúvida sobre estes Termos, entre em contato conosco pelo e-mail <a href="mailto:00001142170925sp@al.educacao.sp.gov.br">00001142170925sp@al.educacao.sp.gov.br</a>.</p>
+
+    <p>Ao usar o site do Jornal Orminda, você concorda em cumprir estes Termos. O Jornal Orminda se reserva o direito de recusar o serviço, encerrar contas de usuário ou remover ou editar conteúdo a seu critério.</p>
+
+</body>
+</html>
