@@ -336,5 +336,75 @@
         loadUserProfile();
     </script>
 
+    <script>
+    // Função para definir um cookie com o token de acesso
+    function setAccessTokenCookie(token, expirationDays) {
+        var expires = "";
+        if (expirationDays) {
+            var date = new Date();
+            date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = "access_token=" + token + expires + "; path=/";
+    }
+
+    // Função para obter o token de acesso do cookie
+    function getAccessTokenCookie() {
+        var name = "access_token=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var cookieArray = decodedCookie.split(';');
+        for (var i = 0; i < cookieArray.length; i++) {
+            var cookie = cookieArray[i];
+            while (cookie.charAt(0) == ' ') {
+                cookie = cookie.substring(1);
+            }
+            if (cookie.indexOf(name) == 0) {
+                return cookie.substring(name.length, cookie.length);
+            }
+        }
+        return null;
+    }
+
+    // Exemplo de uso: definir o token de acesso após o login bem-sucedido
+    function handleLoginSuccess(token) {
+        setAccessTokenCookie(token, 7); // O token expirará em 7 dias
+        localStorage.setItem('accessToken', token); // Salva o token no localStorage
+        loadUserProfile(); // Carrega o perfil do usuário
+    }
+
+    // Exemplo de uso: obter o token de acesso armazenado no cookie
+    var storedToken = getAccessTokenCookie();
+
+    // Função para carregar a foto do perfil do usuário após o login
+    function loadUserProfile() {
+        var accessToken = localStorage.getItem('accessToken');
+        if (accessToken) {
+            fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + accessToken
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                var userProfileContainer = document.getElementById('userProfileContainer');
+                var userProfile = document.createElement('div');
+                userProfile.classList.add('user-profile');
+                var profileImage = document.createElement('img');
+                profileImage.src = data.picture;
+                userProfile.appendChild(profileImage);
+                userProfileContainer.appendChild(userProfile);
+            })
+            .catch(error => {
+                console.error('Erro ao carregar a foto do perfil:', error);
+            });
+        }
+    }
+
+    // Chame esta função após o login bem-sucedido para exibir a foto do perfil
+    loadUserProfile();
+</script>
+
+
 </body>
 </html>
