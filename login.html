@@ -1,15 +1,59 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login com Google</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login com OAuth 2.0</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .login-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .login-button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #4285f4;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .login-button:hover {
+        background-color: #357ae8;
+    }
+</style>
 </head>
 <body>
-    <h1>Login com Google</h1>
-    <p>Para acessar o Jornal Orminda (J0), faça login com sua conta do Google:</p>
-    <a href="https://accounts.google.com/o/oauth2/auth?response_type=token&client_id=88189467972-fl7c2lu34tkoe6e682ukjji4jgoq6bfc.apps.googleusercontent.com&redirect_uri=https://j0oficial.vercel.app/&scope=email%20profile">
-        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Login com Google">
-    </a>
+<div class="login-container">
+    <h2>Login com OAuth 2.0</h2>
+    <form action="https://accounts.google.com/o/oauth2/auth" method="GET">
+        <input type="hidden" name="response_type" value="code">
+        <input type="hidden" name="client_id" value="88189467972-ndpbjniji7ai316rh20rr9euvnkkjpt1.apps.googleusercontent.com">
+        <input type="hidden" name="redirect_uri" value="http://localhost/oauth2callback">
+        <input type="hidden" name="scope" value="https://www.googleapis.com/auth/userinfo.email">
+        <input type="hidden" name="state" value="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">
+        <button type="submit" class="login-button">Login com Google</button>
+    </form>
+</div>
 </body>
 </html>
