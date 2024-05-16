@@ -305,37 +305,6 @@
     <br>
     <footer>Jornal Orminda © Ao usar nosso site, você concorda com nosso <a href="termos.html">Termos de Serviço</a> e nossa <a href="policy.html">Política de Privacidade</a>.</footer>
 
-        <script>
-        // Função para carregar a foto do perfil do usuário após o login
-        function loadUserProfile() {
-            var accessToken = localStorage.getItem('accessToken');
-            if (accessToken) {
-                fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': 'Bearer ' + accessToken
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    var userProfileContainer = document.getElementById('userProfileContainer');
-                    var userProfile = document.createElement('div');
-                    userProfile.classList.add('user-profile');
-                    var profileImage = document.createElement('img');
-                    profileImage.src = data.picture;
-                    userProfile.appendChild(profileImage);
-                    userProfileContainer.appendChild(userProfile);
-                })
-                .catch(error => {
-                    console.error('Erro ao carregar a foto do perfil:', error);
-                });
-            }
-        }
-
-        // Chame esta função após o login bem-sucedido para exibir a foto do perfil
-        loadUserProfile();
-    </script>
-
     <script>
     // Função para definir um cookie com o token de acesso
     function setAccessTokenCookie(token, expirationDays) {
