@@ -1,7 +1,7 @@
 {
   "background_color": "#06aa48",
   "dir": "ltr",
-  "display": "standalone",
+  "display": "fullscreen",
   "name": "j0 - Notícias",
   "orientation": "any",
   "scope": "/",
@@ -19,5 +19,15 @@
   "categories": [
     "news"
   ],
-  "description": "Um site de jornal da escola Orminda Guimarães Cotrim"
+  "description": "Um site de jornal da escola Orminda Guimarães Cotrim",
+  "lang": "pt",
+  "display_override": [
+    "fullscreen",
+    "browser",
+    "window-controls-overlay",
+    "minimal-ui",
+    "standalone"
+  ],
+  "iarc_rating_id": "e12345678",
+  "prefer_related_applications": true
 }
