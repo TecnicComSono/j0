@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>j0 - Notícias</title>
+    <link rel="icon" href="j1.png" type="image/png">
+    <script async src="https://fundingchoicesmessages.google.com/i/pub-5015870081794476?ers=1" nonce="bQX8jGVQMJMrkVTvE79JTA"></script><script nonce="bQX8jGVQMJMrkVTvE79JTA">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+    <!-- Adiciona o Font Awesome para usar ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5015870081794476"
+     crossorigin="anonymous"></script>
+    <link rel="manifest" href="manifest.json"/>
+
+    <style>
+        /* Estilos globais */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Barra de navegação */
+        .navbar {
+            background-color: #06AA48;
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+        }
+
+        .navbar img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Novo contêiner para centralizar o logotipo */
+        .navbar-center {
+            flex-grow: 1; 
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+        }
+
+        /* Menu lateral */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            background-color: #FFF;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            text-align: left;
+            color: #06AA48;
+            display: flex;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #06AA48;
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+        }
+
+        /* Overlay para escurecimento do conteúdo */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Estilos para a seção de notícias */
+        .main-content {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .news-button {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: left;
+            text-decoration: none;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        .news-button:hover {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+        }
+
+        .news-button img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .news-button h2 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .news-button p {
+            color: #666;
+        }
+
+        .news-button a {
+            text-decoration: none;
+            color: #C3170C;
+            font-weight: bold;
+            padding: 8px 15px;
+            border: 1px solid #C3170C;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .news-button a:hover {
+            background-color: #C3170C;
+            color: #fff;
+        }
+
+        /* Media queries para telas menores */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+
+            .navbar img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+    </style>
+
+    <script>
+        function openNav() {
+            var sidenav = document.getElementById("mySidenav");
+            var overlay = document.getElementById("overlay");
+
+            sidenav.style.width = "250px"; 
+            overlay.classList.add("show"); 
+        }
+
+        function closeNav() {
+            var sidenav = document.getElementById("mySidenav");
+            var overlay = document.getElementById("overlay");
+
+            sidenav.style.width = "0"; 
+            overlay.classList.remove("show"); 
+        }
+
+        function shareOnWhatsApp() {
+            var currentURL = encodeURIComponent(window.location.href);
+            var message = encodeURIComponent("Confira esta notícia: ");
+            var whatsappLink = `https://api.whatsapp.com/send?text=${message}${currentURL}`;
+
+            window.open(whatsappLink, '_blank');
+        }
+    </script>
+
+</head>
+<body>
+    <div class="navbar">
+        <button class="menu-button" onclick="openNav()">☰</button>
+        
+        <div class="navbar-center">
+            <img src="j1.png" alt="Logo do Site">
+        </div>
+        
+        <div class="navbar-extra">
+            <form action="https://accounts.google.com/o/oauth2/auth" method="GET">
+                <input type="hidden" name="response_type" value="code">
+                <input type="hidden" name="client_id" value="88189467972-ndpbjniji7ai316rh20rr9euvnkkjpt1.apps.googleusercontent.com">
+                <input type="hidden" name="redirect_uri" value="https://j0oficial.vercel.app">
+                <input type="hidden" name="scope" value="https://www.googleapis.com/auth/userinfo.email">
+                <input type="hidden" name="state" value="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">
+            </form>
+        </div>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html"><i class="fas fa-newspaper"></i>ㅤGerais</a>
+        <a href="escolar.html"><i class="fas fa-book-open"></i>ㅤEscolar</a>
+        <a href="esportes.html"><i class="fas fa-futbol"></i>ㅤEsportes</a>
+        <a href="videos.html"><i class="fas fa-video"></i>ㅤVídeos</a>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closeNav()"></div>
+
+    <div class="main-content">
+        <a href="campanha.html" class="news-button">
+            <img src="Campanha.jpg" alt="Imagem da notícia">
+            <h2>Escola Orminda Guimarães Cotrim e Grêmio Estudantil unidos em campanha de doação de agasalhos</h2>
+            <p>A Escola Orminda Guimarães Cotrim, em parceria com seu Grêmio Estudantil, está promovendo uma nobre campanha de doação de agasalhos. O objetivo é arrecadar roupas e cobertores para ajudar aqueles...</p>
+        </a>
+
+        <a href="livro.html" class="news-button">
+            <img src="livro.jpg" alt="Imagem da notícia">
+            <h2>Professor e aluno transformam desafio literário em livro publicado</h2>
+            <p>Durante uma aula de literatura no 2ºA da Escola Orminda Guimarães Cotrim, o professor Miguel R. Silva lançou um desafio empolgante para os alunos: reescrever uma versão alternativa do clássico "Dom Casmurro", de Machado de Assis. O objetivo era explorar a criatividade dos estudantes e...</p>
+        </a>
+        
+        <a href="futsal.html" class="news-button">
+            <img src="Futsal.png" alt="Imagem da notícia">
+            <h2>JEESP: Escola Orminda Guimarães Cotrim Celebra Vitória da Equipe Masculina de Futsal Mirim sobre Escola Isaías</h2>
+            <p>Num confronto vibrante do JEESP, a equipe masculina de futsal mirim da Escola Orminda Guimarães Cotrim deixou sua marca ao superar a escola Isaías. Sob a tutela...</p>
+        </a>
+
+        <a href="volei.html" class="news-button">
+            <img src="VoleiElenco.png" alt="Imagem da notícia">
+            <h2>JEESP: Equipe de Vôlei Masculino Mirim da Escola Orminda Guimarães Cotrim, sob orientação do professor Guilherme, vence escola Mauricio Montecchi por 2 x 1</h2>
+            <p>No dia 25/04, a equipe de vôlei masculino mirim da Escola Orminda Guimarães Cotrim escreveu um capítulo memorável em sua jornada esportiva ao conquistar uma vitória emocionante contra a escola Mauricio Montecchi no Campeonato...</p>
+        </a>
+
+        <a href="voleifeminino.html" class="news-button">
+            <img src="feminino.jpg" alt="Imagem da notícia">
+            <h2>JEESP: Equipe de Vôlei Feminino Infantil da Escola Orminda Guimarães Cotrim vence escola de Dumont no Campeonato JEESP em 30/04</h2>
+            <p>Sob o comando inspirador dos professores Guilherme e Caio, a equipe de vôlei feminino infantil da Escola Orminda Guimarães Cotrim brilhou em um emocionante jogo contra...
+        </p>
+        </a>
+
+        <a href="trilhandocaminhos.html" class="news-button">
+            <img src="xracismo.png" alt="Imagem da notícia">
+            <h2>Trilhando Caminhos Antirracistas: A Importância da Literatura nas Escolas</h2>
+            <p>
+                Na busca por uma educação mais inclusiva e igualitária, cada vez mais escolas estão adotando a trilha antirracista de livros em suas práticas pedagógicas. Essa abordagem visa não apenas combater o racismo estrutural, mas...</p>
+        </a>
+
+        <a href="creditos.html" class="news-button">
+            <img src="programa.png" alt="Imagem da notícia">
+            <h2>Alunos do 7ºA da Escola Orminda Guimarães Cotrim Propõem a Criação de Jornal Escolar durante Aula de Língua Portuguesa</h2>
+            <p>
+                No final do mês de abril, durante a aula de Língua Portuguesa, ministrada pela Professora Maria Luiza Ribeiro, os alunos do 7ºA da Escola Orminda Guimarães Cotrim tiveram uma ideia brilhante: criar um jornal escolar para compartilhar...</p>
+        </a>
+        <a href="omasp.html" class="news-button">
+            <img src="omasp.jpg" alt="Imagem da notícia">
+            <h2>Alunos da Escola Orminda Guimarães Cotrim se Preparam para a 2ª Fase da Olimpíada de Matemática de São Paulo (OMASP)</h2>
+            <p>Os alunos da Escola Orminda Guimarães Cotrim estão se preparando para enfrentar mais um desafio intelectual: a segunda fase da renomada Olimpíada de Matemática de São Paulo (OMASP). Com um total impressionante de 251 estudantes aprovados na primeira fase, entre os anos finais do ensino fundamental e o ensino...</p>
+        </a>
+
+        <a href="basquete.html" class="news-button">
+            <img src="Basquete.jpg" alt="Imagem da notícia">
+            <h2>Equipe da Escola Orminda Guimarães Cotrim, comandada pelos Professores Guilherme e Caio, Conquista Vitória no Basquetebol Infantil contra a Escola Winston Churchill no JEESP</h2>
+            <p>No último dia 2 de maio, a equipe de basquetebol infantil da Escola Orminda Guimarães Cotrim brilhou nas quadras, conquistando uma vitória emocionante sobre a Escola Winston Churchill no Jogos Escolares do Estado de São Paulo...</p>
+        </a>
+
+        <a href="passeio.html" class="news-button">
+            <img src="Imagem2Passeio.jpg" alt="Imagem da notícia">
+            <h2>Alunos do 3º Ano do Ensino Médio da Escola Orminda Guimarães Cotrim Visitam Centro de Ciências de Araraquara
+</h2>
+            <p>Hoje, os alunos do 3º ano do ensino médio da Escola Orminda Guimarães Cotrim embarcaram em uma viagem educacional memorável para Araraquara. O destino foi o renomado Centro de Ciências de Araraquara, onde os estudantes tiveram...</p>
+        </a>
+    </div>
+    <br>
+    <footer>Jornal Orminda © Ao usar nosso site, você concorda com nosso <a href="termos.html">Termos de Serviço</a> e nossa <a href="policy.html">Política de Privacidade</a>.</footer>
+
+    <script>
+    // Função para definir um cookie com o token de acesso
+    function setAccessTokenCookie(token, expirationDays) {
+        var expires = "";
+        if (expirationDays) {
+            var date = new Date();
+            date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = "access_token=" + token + expires + "; path=/";
+    }
+
+    // Função para obter o token de acesso do cookie
+    function getAccessTokenCookie() {
+        var name = "access_token=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var cookieArray = decodedCookie.split(';');
+        for (var i = 0; i < cookieArray.length; i++) {
+            var cookie = cookieArray[i];
+            while (cookie.charAt(0) == ' ') {
+                cookie = cookie.substring(1);
+            }
+            if (cookie.indexOf(name) == 0) {
+                return cookie.substring(name.length, cookie.length);
+            }
+        }
+        return null;
+    }
+
+    // Exemplo de uso: definir o token de acesso após o login bem-sucedido
+    function handleLoginSuccess(token) {
+        setAccessTokenCookie(token, 7); // O token expirará em 7 dias
+        localStorage.setItem('accessToken', token); // Salva o token no localStorage
+        loadUserProfile(); // Carrega o perfil do usuário
+    }
+
+    // Exemplo de uso: obter o token de acesso armazenado no cookie
+    var storedToken = getAccessTokenCookie();
+
+    // Função para carregar a foto do perfil do usuário após o login
+    function loadUserProfile() {
+        var accessToken = localStorage.getItem('accessToken');
+        if (accessToken) {
+            fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + accessToken
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                var userProfileContainer = document.getElementById('userProfileContainer');
+                var userProfile = document.createElement('div');
+                userProfile.classList.add('user-profile');
+                var profileImage = document.createElement('img');
+                profileImage.src = data.picture;
+                userProfile.appendChild(profileImage);
+                userProfileContainer.appendChild(userProfile);
+            })
+            .catch(error => {
+                console.error('Erro ao carregar a foto do perfil:', error);
+            });
+        }
+    }
+
+    // Chame esta função após o login bem-sucedido para exibir a foto do perfil
+    loadUserProfile();
+</script>
+
+
+</body>
+</html>
