@@ -1,0 +1,19 @@
+{
+  "background_color": "#06aa48",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "j0 - Notícias",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "j0 - Notícias",
+  "start_url": "/j0oficial.vercel.app",
+  "theme_color": "#06aa48",
+  "icons": [
+    {
+      "src": "j1.png",
+      "type": "image/png",
+      "sizes": "397x400"
+    }
+  ],
+  "id": "jornalorminda"
+}
