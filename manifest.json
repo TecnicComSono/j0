@@ -15,5 +15,9 @@
       "sizes": "397x400"
     }
   ],
-  "id": "jornalorminda"
+  "id": "jornalorminda",
+  "categories": [
+    "news"
+  ],
+  "description": "Um site de jornal da escola Orminda Guimarães Cotrim"
 }
