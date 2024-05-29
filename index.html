@@ -178,6 +178,37 @@
                 width: 30px;
                 height: 30px;
             }
+
+            .banner {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .banner p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .banner button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .banner button:hover {
+            background-color: #0056b3;
+        }
         }
 
     </style>
@@ -303,6 +334,32 @@
         </a>
     </div>
     <br>
+
+    <div id="install-banner" class="banner">
+        <p>Quer instalar este app?</p>
+        <button id="install-button">Instalar</button>
+        <button id="close-button">Fechar</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const banner = document.getElementById("install-banner");
+            const installButton = document.getElementById("install-button");
+            const closeButton = document.getElementById("close-button");
+
+            // Exibe o banner
+            banner.style.display = "flex";
+
+            installButton.addEventListener("click", () => {
+                window.location.href = "path/to/j0oficial.apk"; // Substitua pelo caminho correto do seu APK
+            });
+
+            closeButton.addEventListener("click", () => {
+                banner.style.display = "none";
+            });
+        });
+    </script>
+    
     <footer>Jornal Orminda © Ao usar nosso site, você concorda com nosso <a href="termos.html">Termos de Serviço</a> e nossa <a href="policy.html">Política de Privacidade</a>.</footer>
 
     <script>
