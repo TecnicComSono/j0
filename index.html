@@ -179,37 +179,61 @@
                 height: 30px;
             }
 
-            .banner {
+        .banner {
             position: fixed;
             bottom: 10px;
             left: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #ccc;
-            padding: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            display: none;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
             align-items: center;
             gap: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform: translateY(100px);
+            opacity: 0;
+        }
+
+        .banner.show {
+            transform: translateY(0);
+            opacity: 1;
         }
 
         .banner p {
             margin: 0;
-            font-size: 14px;
+            font-size: 16px;
+            color: #333;
         }
 
         .banner button {
             background-color: #007bff;
             color: white;
             border: none;
-            padding: 5px 10px;
+            padding: 8px 12px;
             cursor: pointer;
             border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
         .banner button:hover {
             background-color: #0056b3;
         }
+
+        .banner button:active {
+            background-color: #00408f;
         }
+
+        .banner button.close {
+            background-color: transparent;
+            color: #007bff;
+            padding: 8px;
+        }
+
+        .banner button.close:hover {
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+    }
 
     </style>
 
