@@ -359,10 +359,10 @@
     </div>
     <br>
 
-    <div id="install-banner" class="banner">
-        <p>Você deseja instalar nosso APP?</p>
+<div id="install-banner" class="banner">
+        <p>Você quer instalar nosso APP?</p>
         <button id="install-button">Instalar</button>
-        <button id="close-button">Fechar</button>
+        <button id="close-button" class="close">Fechar</button>
     </div>
 
     <script>
@@ -371,15 +371,20 @@
             const installButton = document.getElementById("install-button");
             const closeButton = document.getElementById("close-button");
 
-            // Exibe o banner
-            banner.style.display = "flex";
+            // Exibe o banner com animação
+            setTimeout(() => {
+                banner.classList.add("show");
+            }, 1000);
 
             installButton.addEventListener("click", () => {
                 window.location.href = "j0oficial.apk"; // Substitua pelo caminho correto do seu APK
             });
 
             closeButton.addEventListener("click", () => {
-                banner.style.display = "none";
+                banner.classList.remove("show");
+                setTimeout(() => {
+                    banner.style.display = "none";
+                }, 300); // Espera a animação terminar
             });
         });
     </script>
